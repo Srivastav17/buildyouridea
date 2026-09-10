@@ -1,7 +1,10 @@
 # BuildYourIdea
 
 Marketing site + lead-capture funnel for a solo AI Product Builder / Product Studio.
-Built with Next.js (App Router), Tailwind CSS, and Prisma (SQLite by default).
+Built with Next.js (App Router), Tailwind CSS, and Prisma (Postgres).
+
+**Live:** https://buildyouridea-seven.vercel.app
+**Admin:** https://buildyouridea-seven.vercel.app/admin/leads
 
 ## Positioning
 
@@ -12,8 +15,9 @@ routing to a structured lead form (`#idea-form`) rather than a generic contact f
 
 - **Framework:** Next.js 16 (App Router, Turbopack)
 - **Styling:** Tailwind CSS, custom dark theme, Framer Motion for subtle reveal animation
-- **Database:** Prisma ORM against SQLite (`prisma/dev.db`) — swap `DATABASE_URL` for
-  Postgres/MySQL in production, no code changes required
+- **Database:** Prisma ORM against Postgres. Production runs on Neon (provisioned via
+  the Vercel Storage → Neon integration); locally you can point `DATABASE_URL` at any
+  Postgres instance
 - **Email:** Nodemailer (SMTP) for new-lead notifications; falls back to console
   logging if SMTP env vars are unset, so no submission is ever silently lost
 - **Admin:** `/admin/leads`, protected by HTTP Basic Auth (`proxy.ts`)
@@ -22,8 +26,8 @@ routing to a structured lead form (`#idea-form`) rather than a generic contact f
 
 ```bash
 npm install
-cp .env.example .env      # then fill in ADMIN_PASSWORD, SMTP, analytics IDs
-npx prisma db push        # creates prisma/dev.db
+cp .env.example .env      # then fill in DATABASE_URL, ADMIN_PASSWORD, SMTP, analytics IDs
+npx prisma db push        # syncs the schema to your Postgres database
 npm run dev
 ```
 
@@ -66,8 +70,23 @@ Fired via `lib/analytics.ts` (`trackEvent`), mapped to both GA4 and Meta Pixel:
 
 ## Deploying
 
-- Point `DATABASE_URL` at a real Postgres/MySQL instance for production (SQLite is a
-  single file and not safe for concurrent writes on most serverless hosts).
-- Set `ADMIN_PASSWORD` to something strong.
-- Configure SMTP credentials so lead notifications actually land in an inbox.
-- Set `NEXT_PUBLIC_GA_MEASUREMENT_ID` / `NEXT_PUBLIC_META_PIXEL_ID` for ad tracking.
+Deployed on Vercel, connected to a Neon Postgres database (provisioned via the
+Vercel Storage → Neon marketplace integration, which sets `DATABASE_URL` /
+`DATABASE_URL_UNPOOLED` automatically). To redeploy:
+
+```bash
+vercel --prod
+```
+
+Still to configure for full production readiness:
+
+- **SMTP credentials** (`SMTP_HOST`/`SMTP_PORT`/`SMTP_USER`/`SMTP_PASSWORD`) — without
+  these, new-lead notifications only get logged server-side (visible via `vercel logs`),
+  not emailed. Set them in the Vercel dashboard (Project → Settings → Environment
+  Variables) or via `vercel env add`.
+- `NEXT_PUBLIC_GA_MEASUREMENT_ID` / `NEXT_PUBLIC_META_PIXEL_ID` for ad tracking.
+- `NEXT_PUBLIC_SITE_URL` — set to the production domain once you attach a custom one.
+- A custom domain (Project → Settings → Domains) — the current URL is a `vercel.app`
+  subdomain.
+
+`ADMIN_USER` / `ADMIN_PASSWORD` are already set as production secrets on Vercel.
