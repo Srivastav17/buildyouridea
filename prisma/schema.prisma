@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// SQLite has no native enum support, so lead status is stored as a plain
+// string constrained at the application layer (see lib/leadOptions.ts).
+model Lead {
+  id          String     @id @default(cuid())
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  // Form fields
+  idea        String
+  audience    String
+  stage       String
+  goal        String
+  budget      String
+  name        String
+  email       String
+  phone       String
+
+  // Pipeline
+  status      String     @default("NEW")
+  notes       String?
+
+  // Attribution
+  utmSource   String?
+  utmMedium   String?
+  utmCampaign String?
+  utmTerm     String?
+  utmContent  String?
+  referrer    String?
+  landingPage String?
+  userAgent   String?
+
+  @@index([status])
+  @@index([createdAt])
+}

@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ink-950 text-ink-100 antialiased;
+  }
+  ::selection {
+    @apply bg-accent-500/30 text-white;
+  }
+}
+
+@layer components {
+  .container-px {
+    @apply px-6 sm:px-8 lg:px-12;
+  }
+  .section {
+    @apply py-20 sm:py-28;
+  }
+  .eyebrow {
+    @apply text-sm font-semibold uppercase tracking-[0.2em] text-accent-400;
+  }
+  .h2 {
+    @apply font-display text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-white;
+  }
+  .lede {
+    @apply mt-4 max-w-2xl text-lg text-ink-300;
+  }
+  .card {
+    @apply rounded-2xl border border-ink-700/60 bg-ink-900/60 backdrop-blur-sm;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-accent-500 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent-900/40 transition hover:bg-accent-400 hover:shadow-accent-700/40 active:scale-[0.98];
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink-600 bg-transparent px-7 py-3.5 text-sm font-semibold text-ink-100 transition hover:border-ink-400 hover:bg-ink-800 active:scale-[0.98];
+  }
+  .field-label {
+    @apply block text-sm font-medium text-ink-200 mb-2;
+  }
+  .field-input {
+    @apply w-full rounded-xl border border-ink-700 bg-ink-900 px-4 py-3 text-ink-100 placeholder:text-ink-500 outline-none transition focus:border-accent-500 focus:ring-2 focus:ring-accent-500/30;
+  }
+  .pill-option {
+    @apply cursor-pointer rounded-xl border border-ink-700 bg-ink-900 px-4 py-3 text-sm text-ink-200 transition hover:border-ink-500;
+  }
+  .pill-option-selected {
+    @apply border-accent-500 bg-accent-500/10 text-white ring-1 ring-accent-500/50;
+  }
+}
+
+.bg-noise {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
