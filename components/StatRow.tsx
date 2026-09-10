@@ -1,7 +1,7 @@
 const stats = [
   { value: "18+", label: "years in product" },
   { value: "2", label: "products built from scratch" },
-  { value: "1", label: "point of contact throughout" },
+  { value: "0", label: "handoffs between teams" },
 ];
 
 export default function StatRow() {
