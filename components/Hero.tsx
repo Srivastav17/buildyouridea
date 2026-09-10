@@ -35,12 +35,12 @@ export default function Hero() {
             build a working prototype.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <CtaLink href="#idea-form" label="Tell Me Your Idea" location="hero">
+            <CtaLink href="/start" label="Tell Me Your Idea" location="hero">
               Tell Me Your Idea
               <ArrowRight className="h-4 w-4" />
             </CtaLink>
             <CtaLink
-              href="#portfolio"
+              href="/work"
               label="See What I've Built"
               location="hero"
               variant="secondary"

@@ -49,7 +49,7 @@ export default function HowItWorks() {
             and effort vary, and there&rsquo;s no promise that every idea can be built in a fixed
             number of days.
           </p>
-          <CtaLink href="#idea-form" label="Tell Me Your Idea" location="how-it-works" className="shrink-0" />
+          <CtaLink href="/start" label="Tell Me Your Idea" location="how-it-works" className="shrink-0" />
         </div>
       </div>
     </section>

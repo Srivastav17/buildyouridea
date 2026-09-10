@@ -27,14 +27,9 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section id="faq" className="section border-t border-ink-800/60">
+    <section id="faq" className="section">
       <div className="container-px mx-auto max-w-4xl">
-        <div className="max-w-2xl">
-          <p className="eyebrow">FAQ</p>
-          <h2 className="h2 mt-3">Common questions.</h2>
-        </div>
-
-        <div className="mt-12 divide-y divide-ink-800">
+        <div className="divide-y divide-ink-800">
           {faqs.map((faq) => (
             <details key={faq.q} className="group py-6">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4">

@@ -1,8 +1,10 @@
 import Reveal from "./Reveal";
+import ProductPreview from "./ProductPreview";
 
 interface CaseStudy {
   name: string;
   tagline: string;
+  palette: "violet" | "teal" | "amber" | "rose";
   problem: string;
   productThinking: string;
   whatWasBuilt: string[];
@@ -13,6 +15,7 @@ const caseStudies: CaseStudy[] = [
   {
     name: "InZob",
     tagline: "AI-powered business and healthcare engagement platform",
+    palette: "teal",
     problem:
       "Businesses and healthcare providers were losing leads and patients to slow, manual follow-up — enquiries came in across channels and nobody had a consistent way to respond, qualify, and stay engaged.",
     productThinking:
@@ -33,6 +36,7 @@ const caseStudies: CaseStudy[] = [
   {
     name: "FundReap",
     tagline: "Built from idea to working application",
+    palette: "violet",
     problem:
       "The starting point was a raw idea, not a spec — the challenge was figuring out what the product actually needed to do before writing a single line of code.",
     productThinking:
@@ -47,6 +51,11 @@ const caseStudies: CaseStudy[] = [
     result:
       "A working application built from a single idea through to a functioning product — demonstrating the same discovery-to-build process used for client projects.",
   },
+];
+
+const moreWork: { name: string; tagline: string; palette: CaseStudy["palette"] }[] = [
+  { name: "DiveGrow", tagline: "Another product built from idea to working software.", palette: "amber" },
+  { name: "Zimove", tagline: "Another product built from idea to working software.", palette: "rose" },
 ];
 
 export default function Portfolio() {
@@ -113,23 +122,37 @@ export default function Portfolio() {
                     idx % 2 === 1 ? "lg:order-1" : ""
                   }`}
                 >
-                  <div className="flex aspect-video items-center justify-center rounded-xl border border-dashed border-ink-700 bg-ink-900 text-center">
-                    <p className="px-6 text-xs text-ink-500">
-                      Product screenshot / UI mockup for {study.name}
-                    </p>
-                  </div>
+                  <ProductPreview name={study.name} palette={study.palette} />
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="flex aspect-square items-center justify-center rounded-xl border border-dashed border-ink-700 bg-ink-900">
-                      <p className="px-3 text-center text-xs text-ink-500">Screenshot</p>
-                    </div>
-                    <div className="flex aspect-square items-center justify-center rounded-xl border border-dashed border-ink-700 bg-ink-900">
-                      <p className="px-3 text-center text-xs text-ink-500">Demo video</p>
-                    </div>
+                    <ProductPreview name={study.name} label="Screenshot" palette={study.palette} className="aspect-square" />
+                    <ProductPreview name={study.name} label="Demo" palette={study.palette} className="aspect-square" />
                   </div>
                 </div>
               </div>
             </Reveal>
           ))}
+        </div>
+
+        <div className="mt-20">
+          <Reveal>
+            <p className="text-xs font-semibold uppercase tracking-widest text-ink-500">
+              More products built
+            </p>
+          </Reveal>
+          <div className="mt-6 grid gap-6 sm:grid-cols-2">
+            {moreWork.map((item, i) => (
+              <Reveal key={item.name} delay={i * 0.06}>
+                <div className="card overflow-hidden p-5">
+                  <ProductPreview name={item.name} palette={item.palette} />
+                  <h3 className="mt-5 font-display text-lg font-semibold text-white">
+                    {item.name}
+                  </h3>
+                  <p className="mt-1 text-sm text-ink-300">{item.tagline}</p>
+                  <p className="mt-3 text-xs text-ink-500">Full case study coming soon.</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>

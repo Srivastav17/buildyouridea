@@ -1,4 +1,12 @@
+import Link from "next/link";
 import CtaLink from "./CtaLink";
+
+const navLinks = [
+  { label: "Work", href: "/work" },
+  { label: "Process", href: "/process" },
+  { label: "About", href: "/about" },
+  { label: "FAQ", href: "/faq" },
+];
 
 export default function Footer() {
   return (
@@ -10,13 +18,24 @@ export default function Footer() {
               Build<span className="text-accent-400">Your</span>Idea
             </div>
             <p className="mt-2 max-w-sm text-sm text-ink-400">
-              Product strategy and AI-native development, from idea to working prototype.
+              A product studio for people who have an idea but not yet a product.
             </p>
           </div>
-          <CtaLink href="#idea-form" label="Tell Me Your Idea" location="footer" />
+          <nav className="flex flex-wrap gap-x-6 gap-y-2">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm text-ink-400 transition hover:text-white"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+          <CtaLink href="/start" label="Tell Me Your Idea" location="footer" />
         </div>
         <div className="mt-10 flex flex-col gap-2 border-t border-ink-800 pt-6 text-xs text-ink-500 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} BuildYourIdea. Built by Gaurav.</p>
+          <p>© {new Date().getFullYear()} BuildYourIdea.</p>
           <p>Projects are scoped individually. No two ideas are the same.</p>
         </div>
       </div>

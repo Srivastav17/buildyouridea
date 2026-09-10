@@ -13,7 +13,7 @@ export default function FinalCTA() {
           first version should look like.
         </p>
         <div className="mt-10 flex justify-center">
-          <CtaLink href="#idea-form" label="TELL ME YOUR IDEA" location="final-cta" />
+          <CtaLink href="/start" label="TELL ME YOUR IDEA" location="final-cta" />
         </div>
       </div>
     </section>

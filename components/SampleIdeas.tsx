@@ -35,7 +35,7 @@ export default function SampleIdeas() {
         </div>
 
         <div className="mt-10">
-          <CtaLink href="#idea-form" label="Tell Me Your Idea" location="sample-ideas" />
+          <CtaLink href="/start" label="Tell Me Your Idea" location="sample-ideas" />
         </div>
       </div>
     </section>

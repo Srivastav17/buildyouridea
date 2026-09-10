@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode } from "react";
+import Link from "next/link";
 import { trackEvent } from "@/lib/analytics";
 
 interface CtaLinkProps {
@@ -20,13 +21,20 @@ export default function CtaLink({
   children,
   className = "",
 }: CtaLinkProps) {
+  const classes = `${variant === "primary" ? "btn-primary" : "btn-secondary"} ${className}`;
+  const handleClick = () => trackEvent("cta_click", { label, location });
+
+  if (href.startsWith("#")) {
+    return (
+      <a href={href} onClick={handleClick} className={classes}>
+        {children ?? label}
+      </a>
+    );
+  }
+
   return (
-    <a
-      href={href}
-      onClick={() => trackEvent("cta_click", { label, location })}
-      className={`${variant === "primary" ? "btn-primary" : "btn-secondary"} ${className}`}
-    >
+    <Link href={href} onClick={handleClick} className={classes}>
       {children ?? label}
-    </a>
+    </Link>
   );
 }
