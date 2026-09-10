@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Process",
   description:
     "How ideas turn into working products here — and why it's different from a freelancer or a traditional agency.",
+  alternates: { canonical: "/process" },
 };
 
 export default function ProcessPage() {

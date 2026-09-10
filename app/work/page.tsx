@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Work",
   description:
     "Case studies and capabilities — AI products, SaaS prototypes, and business automation built from idea to working software.",
+  alternates: { canonical: "/work" },
 };
 
 export default function WorkPage() {

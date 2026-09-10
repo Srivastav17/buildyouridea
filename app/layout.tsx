@@ -48,6 +48,7 @@ export const metadata: Metadata = {
       "You bring the idea. This product studio helps define what should be built and turns it into a working prototype or MVP using AI-native product development.",
   },
   robots: { index: true, follow: true },
+  alternates: { canonical: "/" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

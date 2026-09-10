@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Tell Me Your Idea",
   description:
     "Describe your idea in your own words — no technical specification needed. Get it reviewed and hear back on next steps.",
+  alternates: { canonical: "/start" },
 };
 
 export default function StartPage() {

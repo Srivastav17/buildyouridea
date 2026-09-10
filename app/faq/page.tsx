@@ -6,6 +6,7 @@ import FinalCTA from "@/components/FinalCTA";
 export const metadata: Metadata = {
   title: "FAQ",
   description: "Answers to common questions about scope, cost, timelines, and how projects work.",
+  alternates: { canonical: "/faq" },
 };
 
 export default function FAQPage() {
