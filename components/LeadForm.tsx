@@ -127,7 +127,7 @@ export default function LeadForm() {
           Thanks. Your idea has been received.
         </h3>
         <p className="mt-3 text-ink-300">
-          I&rsquo;ll review it and get back to you with the next steps.
+          We&rsquo;ll review it and get back to you with the next steps.
         </p>
       </div>
     );

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | BuildYourIdea",
   },
   description:
-    "Bring your SaaS, AI, or automation idea. I help define what should be built and turn it into a working prototype or MVP using AI-native product development.",
+    "Bring your SaaS, AI, or automation idea. This product studio helps define what should be built and turns it into a working prototype or MVP using AI-native product development.",
   keywords: [
     "AI product builder",
     "MVP development",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "BuildYourIdea — From idea to working product",
     description:
-      "You bring the idea. I help define what should be built and turn it into a working prototype or MVP using AI-native product development.",
+      "You bring the idea. This product studio helps define what should be built and turns it into a working prototype or MVP using AI-native product development.",
     url: siteUrl,
     siteName: "BuildYourIdea",
     type: "website",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "BuildYourIdea — From idea to working product",
     description:
-      "You bring the idea. I help define what should be built and turn it into a working prototype or MVP using AI-native product development.",
+      "You bring the idea. This product studio helps define what should be built and turns it into a working prototype or MVP using AI-native product development.",
   },
   robots: { index: true, follow: true },
 };

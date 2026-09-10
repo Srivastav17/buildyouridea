@@ -6,7 +6,7 @@ export default function LeadFormSection() {
       <div className="container-px mx-auto max-w-7xl">
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow">Start Here</p>
-          <h2 className="h2 mt-3">Tell me what you want to build.</h2>
+          <h2 className="h2 mt-3">Tell us what you want to build.</h2>
           <p className="lede mx-auto">
             Describe your idea in your own words. You don&rsquo;t need technical specifications.
           </p>

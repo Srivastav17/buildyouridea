@@ -15,7 +15,7 @@ export default function WorkPage() {
     <>
       <PageHeader
         eyebrow="Work"
-        title="What I can build, and what's already been built."
+        title="What gets built here, and what's already shipped."
         description="Real case studies, not a service menu — plus the range of product types this covers."
       />
       <WhatICanBuild />

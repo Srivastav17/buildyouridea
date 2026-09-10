@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
   const budget = body.budget;
 
   const errors: Record<string, string> = {};
-  if (idea.length < 15) errors.idea = "Tell me a bit more about what you want to build (15+ characters).";
+  if (idea.length < 15) errors.idea = "Tell us a bit more about what you want to build (15+ characters).";
   if (name.length < 2) errors.name = "Please enter your name.";
   if (!EMAIL_RE.test(email)) errors.email = "Please enter a valid email address.";
   if (phone.length < 6) errors.phone = "Please enter a valid phone / WhatsApp number.";

@@ -64,7 +64,7 @@ export default function Portfolio() {
       <div className="container-px mx-auto max-w-7xl">
         <Reveal className="max-w-2xl">
           <p className="eyebrow">Proof of Work</p>
-          <h2 className="h2 mt-3">I don&rsquo;t just talk about products. I build them.</h2>
+          <h2 className="h2 mt-3">Not just talk about products. Built ones.</h2>
           <p className="lede">
             Two products built end-to-end — from an undefined problem to working software.
           </p>

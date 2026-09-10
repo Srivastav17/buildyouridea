@@ -7,7 +7,7 @@ export default function About() {
       <div className="container-px mx-auto max-w-7xl">
         <div className="max-w-2xl">
           <p className="eyebrow">About the Studio</p>
-          <h2 className="h2 mt-3">A product studio, run one project at a time.</h2>
+          <h2 className="h2 mt-3">A product studio focused on getting to working software.</h2>
           <div className="lede space-y-4 max-w-2xl text-ink-300">
             <p>
               BuildYourIdea is a product studio for founders and businesses who have an idea but

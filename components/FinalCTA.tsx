@@ -9,7 +9,7 @@ export default function FinalCTA() {
           Your idea doesn&rsquo;t need to stay in your head.
         </h2>
         <p className="mx-auto mt-5 max-w-xl text-lg text-ink-300">
-          Tell me what you want to build. I&rsquo;ll review the idea and help determine what the
+          Share what you want to build. It&rsquo;ll get reviewed, with a clear read on what the
           first version should look like.
         </p>
         <div className="mt-10 flex justify-center">

@@ -40,7 +40,7 @@ export default function WhatICanBuild() {
       <div className="container-px mx-auto max-w-7xl">
         <Reveal className="max-w-2xl">
           <p className="eyebrow">Capabilities</p>
-          <h2 className="h2 mt-3">What I can build.</h2>
+          <h2 className="h2 mt-3">What gets built here.</h2>
         </Reveal>
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((item, i) => (

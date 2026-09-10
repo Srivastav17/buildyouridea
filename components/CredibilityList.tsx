@@ -26,8 +26,8 @@ const credentials = [
       "Founded and built InZob and FundReap end-to-end, from problem definition to working application.",
   },
   {
-    title: "Solo, founder-led",
-    description: "No account managers, no handoffs. You work directly with the person building your product.",
+    title: "Direct, no layers",
+    description: "No account managers, no handoffs between teams. One point of contact throughout the project.",
   },
 ];
 

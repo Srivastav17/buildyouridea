@@ -23,7 +23,7 @@ export default function PortfolioTeaser() {
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <Reveal className="max-w-xl">
             <p className="eyebrow">Proof of Work</p>
-            <h2 className="h2 mt-3">I don&rsquo;t just talk about products. I build them.</h2>
+            <h2 className="h2 mt-3">Not just talk about products. Built ones.</h2>
           </Reveal>
           <Link
             href="/work"

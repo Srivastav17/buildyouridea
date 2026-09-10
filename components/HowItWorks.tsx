@@ -9,7 +9,7 @@ const steps = [
   {
     n: "02",
     title: "Scope the Product",
-    description: "I review the idea and define the smallest version worth building.",
+    description: "The idea gets reviewed and scoped down to the smallest version worth building.",
   },
   {
     n: "03",
