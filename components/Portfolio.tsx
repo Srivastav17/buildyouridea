@@ -10,6 +10,7 @@ interface CaseStudy {
   whatWasBuilt: string[];
   result: string;
   screenshotSrc?: string;
+  screenshotSrcs?: string[];
 }
 
 const caseStudies: CaseStudy[] = [
@@ -34,7 +35,8 @@ const caseStudies: CaseStudy[] = [
     ],
     result:
       "A working platform where AI agents handle first-touch engagement, qualify intent, and automate follow-up — turning scattered conversations into a structured, trackable pipeline.",
-    screenshotSrc: "/screenshots/inzob-clinical.png",
+    screenshotSrc: "/screenshots/inzob-inbox.png",
+    screenshotSrcs: ["/screenshots/inzob-appointments.png", "/screenshots/inzob-reports.png"],
   },
   {
     name: "FundReap",
@@ -53,6 +55,7 @@ const caseStudies: CaseStudy[] = [
       "Automated payment reminders and promise-to-pay tracking",
     ],
     screenshotSrc: "/screenshots/fundreap-dashboard.png",
+    screenshotSrcs: ["/screenshots/fundreap-customers.png"],
     result:
       "A working, live application that reads a business's real Tally data and turns it into a daily collection plan — with AI insights on which accounts are at risk and why, not just a list of overdue invoices.",
   },
@@ -162,9 +165,15 @@ export default function Portfolio() {
                       label="Screenshot"
                       palette={study.palette}
                       className="aspect-square"
-                      screenshotSrc={study.screenshotSrc}
+                      screenshotSrc={study.screenshotSrcs?.[0]}
                     />
-                    <ProductPreview name={study.name} label="Demo" palette={study.palette} className="aspect-square" />
+                    <ProductPreview
+                      name={study.name}
+                      label="Screenshot"
+                      palette={study.palette}
+                      className="aspect-square"
+                      screenshotSrc={study.screenshotSrcs?.[1]}
+                    />
                   </div>
                 </div>
               </div>
