@@ -8,6 +8,7 @@ const items = [
     name: "InZob",
     tagline: "AI-powered business and healthcare engagement platform",
     palette: "teal" as const,
+    screenshotSrc: "/screenshots/inzob-clinical.png",
   },
   {
     name: "FundReap",
@@ -38,7 +39,11 @@ export default function PortfolioTeaser() {
           {items.map((item, i) => (
             <Reveal key={item.name} delay={i * 0.08}>
               <Link href="/work" className="card group block h-full overflow-hidden p-5">
-                <ProductPreview name={item.name} palette={item.palette} />
+                <ProductPreview
+                  name={item.name}
+                  palette={item.palette}
+                  screenshotSrc={item.screenshotSrc}
+                />
                 <h3 className="mt-5 font-display text-xl font-semibold text-white">
                   {item.name}
                 </h3>

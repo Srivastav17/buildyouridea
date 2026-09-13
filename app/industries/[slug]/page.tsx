@@ -55,7 +55,11 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
                   </li>
                 ))}
               </ul>
-              <ProductPreview name={industry.builtWith.project} palette="teal" />
+              <ProductPreview
+                name={industry.builtWith.project}
+                palette="teal"
+                screenshotSrc={industry.builtWith.screenshotSrc}
+              />
             </div>
           </div>
         </section>

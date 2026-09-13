@@ -7,6 +7,7 @@ export interface Industry {
     project: string;
     description: string;
     whatWasBuilt: string[];
+    screenshotSrc?: string;
   };
   opportunities: {
     title: string;
@@ -31,7 +32,9 @@ export const industries: Industry[] = [
         "Appointment scheduling and automation",
         "Automated follow-up sequences",
         "Conversation intelligence and analytics",
+        "AI-assisted clinical documentation — patient summaries, prescriptions, and doctor's notes",
       ],
+      screenshotSrc: "/screenshots/inzob-clinical.png",
     },
     opportunities: [
       {

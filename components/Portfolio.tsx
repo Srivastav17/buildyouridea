@@ -9,6 +9,7 @@ interface CaseStudy {
   productThinking: string;
   whatWasBuilt: string[];
   result: string;
+  screenshotSrc?: string;
 }
 
 const caseStudies: CaseStudy[] = [
@@ -29,9 +30,11 @@ const caseStudies: CaseStudy[] = [
       "AI-generated insights from conversation data",
       "Automated follow-up sequences",
       "Conversation intelligence and analytics",
+      "AI-assisted clinical documentation — patient summaries, prescription templates, and suggested doctor's notes",
     ],
     result:
       "A working platform where AI agents handle first-touch engagement, qualify intent, and automate follow-up — turning scattered conversations into a structured, trackable pipeline.",
+    screenshotSrc: "/screenshots/inzob-clinical.png",
   },
   {
     name: "FundReap",
@@ -145,9 +148,19 @@ export default function Portfolio() {
                     idx % 2 === 1 ? "lg:order-1" : ""
                   }`}
                 >
-                  <ProductPreview name={study.name} palette={study.palette} />
+                  <ProductPreview
+                    name={study.name}
+                    palette={study.palette}
+                    screenshotSrc={study.screenshotSrc}
+                  />
                   <div className="grid grid-cols-2 gap-4">
-                    <ProductPreview name={study.name} label="Screenshot" palette={study.palette} className="aspect-square" />
+                    <ProductPreview
+                      name={study.name}
+                      label="Screenshot"
+                      palette={study.palette}
+                      className="aspect-square"
+                      screenshotSrc={study.screenshotSrc}
+                    />
                     <ProductPreview name={study.name} label="Demo" palette={study.palette} className="aspect-square" />
                   </div>
                 </div>
