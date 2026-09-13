@@ -17,7 +17,7 @@ export default function Hero() {
         <div className="animate-fade-up">
           <div className="inline-flex items-center gap-2 rounded-full border border-ink-700 bg-ink-900/80 px-4 py-1.5 text-xs font-medium text-ink-300">
             <Sparkles className="h-3.5 w-3.5 text-accent-400" />
-            AI-native product development, product-studio rigor
+            Backed by 18+ years of product experience
           </div>
 
           <h1 className="mt-6 font-display text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl">
@@ -27,12 +27,11 @@ export default function Hero() {
             </span>
           </h1>
           <p className="mt-4 text-lg font-medium text-ink-300 sm:text-xl">
-            From idea &rarr; product strategy &rarr; working prototype.
+            No product team to hire. No engineers to find. Just a working prototype.
           </p>
           <p className="lede">
-            You don&rsquo;t need to hire a full product and engineering team to test your idea.
-            Bring your SaaS, AI, or automation idea and this studio will help define the product
-            and build a working prototype.
+            Bring your SaaS, AI, or automation idea. This studio defines what&rsquo;s actually
+            worth building, then uses AI-native development to turn it into working software fast.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <CtaLink href="/start" label="Tell Me Your Idea" location="hero">
