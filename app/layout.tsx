@@ -4,6 +4,7 @@ import "./globals.css";
 import AnalyticsScripts from "@/components/AnalyticsScripts";
 import PageViewTracker from "@/components/PageViewTracker";
 import SiteChrome from "@/components/SiteChrome";
+import JsonLd from "@/components/JsonLd";
 
 const plexSans = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -59,6 +60,34 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${plexSans.variable} ${plexMono.variable}`}>
       <body className="min-h-screen bg-ink-950 font-sans">
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "@id": `${siteUrl}/#organization`,
+            name: "Builidea",
+            url: siteUrl,
+            description:
+              "Builidea is a product studio that turns SaaS, AI, and automation ideas into working prototypes and MVPs using AI-native product development.",
+            image: `${siteUrl}/opengraph-image`,
+            parentOrganization: {
+              "@type": "Organization",
+              name: "India Fashion World",
+            },
+            areaServed: "IN",
+            sameAs: [],
+          }}
+        />
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": `${siteUrl}/#website`,
+            url: siteUrl,
+            name: "Builidea",
+            publisher: { "@id": `${siteUrl}/#organization` },
+          }}
+        />
         <AnalyticsScripts />
         <PageViewTracker />
         <SiteChrome>{children}</SiteChrome>

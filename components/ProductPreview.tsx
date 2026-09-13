@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { MapPin, Luggage, ArrowRight } from "lucide-react";
 
 const palettes: Record<string, { from: string; to: string; dot: string }> = {
@@ -38,8 +39,13 @@ export default function ProductPreview({
       <div
         className={`relative flex aspect-video w-full items-center justify-center overflow-hidden rounded-sm border border-ink-700/60 bg-ink-950 ${className}`}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={screenshotSrc} alt={`${name} — ${label}`} className="h-full w-full object-cover object-top" />
+        <Image
+          src={screenshotSrc}
+          alt={`${name} — ${label}`}
+          fill
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          className="object-cover object-top"
+        />
       </div>
     );
   }

@@ -4,7 +4,10 @@ import PageHeader from "@/components/PageHeader";
 import CtaLink from "@/components/CtaLink";
 import FinalCTA from "@/components/FinalCTA";
 import ProductPreview from "@/components/ProductPreview";
+import JsonLd from "@/components/JsonLd";
 import { industries, getIndustry } from "@/lib/industries";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 export function generateStaticParams() {
   return industries.map((industry) => ({ slug: industry.slug }));
@@ -18,12 +21,16 @@ export async function generateMetadata({
   const { slug } = await params;
   const industry = getIndustry(slug);
   if (!industry) return {};
+  const title = `AI Product Development for ${industry.name}`;
+  const description = industry.hasRealWork
+    ? `${industry.builtWith?.description} Real work built for ${industry.name.toLowerCase()}.`
+    : `Where AI-native product development could help in ${industry.name.toLowerCase()} — example opportunities, not a claimed project.`;
   return {
-    title: industry.name,
-    description: industry.hasRealWork
-      ? `${industry.builtWith?.description} Real work built for ${industry.name.toLowerCase()}.`
-      : `Where AI-native product development could help in ${industry.name.toLowerCase()} — example opportunities, not a claimed project.`,
+    title,
+    description,
     alternates: { canonical: `/industries/${industry.slug}` },
+    openGraph: { title, description },
+    twitter: { title, description },
   };
 }
 
@@ -34,6 +41,22 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
 
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+            { "@type": "ListItem", position: 2, name: "Industries", item: `${siteUrl}/industries` },
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: industry.name,
+              item: `${siteUrl}/industries/${industry.slug}`,
+            },
+          ],
+        }}
+      />
       <PageHeader
         eyebrow={`Industries / ${industry.name}`}
         title={industry.tagline}
