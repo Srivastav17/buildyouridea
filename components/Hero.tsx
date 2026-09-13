@@ -60,7 +60,7 @@ export default function Hero() {
               <div className="flex font-semibold text-white">
                 <span>[05] mvp</span>
                 <span className="mx-1 flex-1 overflow-hidden text-ink-700">.................</span>
-                <span className="bg-accent-400 px-1.5 text-ink-950">&#9608;</span>
+                <span className="inline-block h-[1em] w-3 bg-accent-400 align-middle" />
               </div>
             </div>
           </div>
