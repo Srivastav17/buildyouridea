@@ -8,7 +8,7 @@ export default function PageHeader({ eyebrow, title, description }: PageHeaderPr
   return (
     <section className="relative overflow-hidden bg-grid-fade border-b border-ink-800/60">
       <div className="bg-noise absolute inset-0 opacity-30" />
-      <div className="container-px relative mx-auto max-w-7xl py-16 sm:py-20">
+      <div className="container-px relative mx-auto max-w-7xl pt-14 sm:pt-20 pb-10 sm:pb-14">
         <p className="eyebrow">{eyebrow}</p>
         <h1 className="h2 mt-3">{title}</h1>
         {description && <p className="lede">{description}</p>}

@@ -4,7 +4,7 @@ import ProductPreview from "./ProductPreview";
 interface CaseStudy {
   name: string;
   tagline: string;
-  palette: "violet" | "teal" | "amber" | "rose";
+  palette: "violet" | "teal" | "amber" | "rose" | "cyan" | "crimson";
   problem: string;
   productThinking: string;
   whatWasBuilt: string[];
@@ -53,9 +53,36 @@ const caseStudies: CaseStudy[] = [
   },
 ];
 
-const moreWork: { name: string; tagline: string; palette: CaseStudy["palette"] }[] = [
-  { name: "DiveGrow", tagline: "Another product built from idea to working software.", palette: "amber" },
-  { name: "Zimove", tagline: "Another product built from idea to working software.", palette: "rose" },
+const moreWork: {
+  name: string;
+  tagline: string;
+  palette: CaseStudy["palette"];
+  status: string;
+}[] = [
+  {
+    name: "DiveGrow",
+    tagline: "Another product built from idea to working software.",
+    palette: "amber",
+    status: "Full case study coming soon.",
+  },
+  {
+    name: "Zimove",
+    tagline: "Another product built from idea to working software.",
+    palette: "rose",
+    status: "Full case study coming soon.",
+  },
+  {
+    name: "OMEN Jobs",
+    tagline: "An AI job-search assistant that scores openings against a resume and tailors it per role.",
+    palette: "cyan",
+    status: "A working local tool — runs privately on your own machine by design.",
+  },
+  {
+    name: "Trading Research System",
+    tagline: "A multi-engine AI-assisted system for researching options-trading strategies.",
+    palette: "crimson",
+    status: "Paper trading only — a private research tool, not a public product.",
+  },
 ];
 
 export default function Portfolio() {
@@ -148,7 +175,7 @@ export default function Portfolio() {
                     {item.name}
                   </h3>
                   <p className="mt-1 text-sm text-ink-300">{item.tagline}</p>
-                  <p className="mt-3 text-xs text-ink-500">Full case study coming soon.</p>
+                  <p className="mt-3 text-xs text-ink-500">{item.status}</p>
                 </div>
               </Reveal>
             ))}

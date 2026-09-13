@@ -3,6 +3,8 @@ const palettes: Record<string, { from: string; to: string; dot: string }> = {
   teal: { from: "#3fe0c5", to: "#134c47", dot: "#8ef5e2" },
   amber: { from: "#ffb545", to: "#5c3a12", dot: "#ffd699" },
   rose: { from: "#ff6b9d", to: "#5c1f38", dot: "#ffb3cd" },
+  cyan: { from: "#38bdf8", to: "#0c3a52", dot: "#a5e8ff" },
+  crimson: { from: "#f5455c", to: "#4a1018", dot: "#ffb3bd" },
 };
 
 interface ProductPreviewProps {

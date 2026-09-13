@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 
 const navLinks = [
   { label: "/work", href: "/work" },
+  { label: "/industries", href: "/industries" },
   { label: "/process", href: "/process" },
   { label: "/about", href: "/about" },
   { label: "/faq", href: "/faq" },
@@ -28,7 +29,7 @@ export default function MobileNav() {
   }, [open]);
 
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <button
         type="button"
         aria-label={open ? "Close menu" : "Open menu"}

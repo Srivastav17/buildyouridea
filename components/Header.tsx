@@ -5,6 +5,7 @@ import Logo from "./Logo";
 
 const navLinks = [
   { label: "/work", href: "/work" },
+  { label: "/industries", href: "/industries" },
   { label: "/process", href: "/process" },
   { label: "/about", href: "/about" },
   { label: "/faq", href: "/faq" },
@@ -17,7 +18,7 @@ export default function Header() {
         <Link href="/" aria-label="Builidea home">
           <Logo />
         </Link>
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-6 lg:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
