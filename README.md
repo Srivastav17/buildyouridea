@@ -1,4 +1,4 @@
-# Buildia
+# Builidea
 
 Marketing site + lead-capture funnel for a solo AI Product Builder / Product Studio.
 Built with Next.js (App Router), Tailwind CSS, and Prisma (Postgres).

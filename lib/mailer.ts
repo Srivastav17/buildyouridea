@@ -20,7 +20,7 @@ export async function sendLeadNotification(lead: Lead) {
 
   const subject = `New idea submitted: ${lead.name} (${lead.goal})`;
   const text = [
-    `New lead received on Buildia`,
+    `New lead received on Builidea`,
     ``,
     `Name: ${lead.name}`,
     `Email: ${lead.email}`,

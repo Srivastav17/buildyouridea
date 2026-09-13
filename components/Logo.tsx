@@ -41,7 +41,7 @@ export default function Logo({ showWordmark = true, className = "" }: LogoProps)
       <LogoMark className="h-8 w-8 shrink-0" />
       {showWordmark && (
         <span className="font-display text-lg font-semibold tracking-tight text-white">
-          Build<span className="text-accent-400">ia</span>
+          Buil<span className="text-accent-400">idea</span>
         </span>
       )}
     </span>

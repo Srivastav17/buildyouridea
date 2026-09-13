@@ -10,7 +10,7 @@ export default function About() {
           <h2 className="h2 mt-3">A product studio focused on getting to working software.</h2>
           <div className="lede space-y-4 max-w-2xl text-ink-300">
             <p>
-              Buildia is a product studio for founders and businesses who have an idea but
+              Builidea is a product studio for founders and businesses who have an idea but
               not yet a product. It&rsquo;s run by a Senior Product Manager and AI Product Builder
               with 18+ years of experience across SaaS, CRM, customer engagement and product
               platforms — including building InZob and FundReap from scratch.
