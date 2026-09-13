@@ -83,9 +83,9 @@ const moreWork: {
   },
   {
     name: "Zimove",
-    tagline: "Another product built from idea to working software.",
+    tagline: "On-demand luggage pickup and delivery, booked in minutes.",
     palette: "rose",
-    status: "Full case study coming soon.",
+    status: "Built from idea to working software. Full case study coming soon.",
   },
   {
     name: "OMEN Jobs",
