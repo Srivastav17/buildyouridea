@@ -3,10 +3,10 @@ import CtaLink from "./CtaLink";
 import Logo from "./Logo";
 
 const navLinks = [
-  { label: "Work", href: "/work" },
-  { label: "Process", href: "/process" },
-  { label: "About", href: "/about" },
-  { label: "FAQ", href: "/faq" },
+  { label: "/work", href: "/work" },
+  { label: "/process", href: "/process" },
+  { label: "/about", href: "/about" },
+  { label: "/faq", href: "/faq" },
 ];
 
 export default function Footer() {
@@ -25,7 +25,7 @@ export default function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-ink-400 transition hover:text-white"
+                className="font-mono text-sm text-ink-400 transition hover:text-accent-400"
               >
                 {link.label}
               </Link>

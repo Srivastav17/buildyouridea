@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         ink: {
-          950: "#08090c",
+          950: "#0b0d10",
           900: "#0d0f14",
           850: "#12151c",
           800: "#171b24",
@@ -23,30 +23,33 @@ const config: Config = {
           100: "#e4e6ec",
         },
         accent: {
-          DEFAULT: "#7c5cff",
-          50: "#f2effe",
-          100: "#e4ddfe",
-          200: "#c9bbfd",
-          300: "#ac96fb",
-          400: "#9377fa",
-          500: "#7c5cff",
-          600: "#6644e6",
-          700: "#5133b8",
-          800: "#3c268a",
-          900: "#281a5c",
+          DEFAULT: "#F5A623",
+          50: "#fef8ec",
+          100: "#fdedc9",
+          200: "#fad98d",
+          300: "#f7c358",
+          400: "#f5a623",
+          500: "#e8940f",
+          600: "#c2760a",
+          700: "#96590c",
+          800: "#78480f",
+          900: "#4a2c08",
         },
         signal: {
           teal: "#3fe0c5",
-          amber: "#ffb545",
+          amber: "#f5a623",
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        display: ["var(--font-space)", "system-ui", "sans-serif"],
+        sans: ["var(--font-plex-sans)", "system-ui", "sans-serif"],
+        display: ["var(--font-plex-sans)", "system-ui", "sans-serif"],
+        mono: ["var(--font-plex-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
       },
       backgroundImage: {
         "grid-fade":
-          "linear-gradient(to bottom, transparent, rgba(8,9,12,1)), radial-gradient(ellipse 80% 50% at 50% -20%, rgba(124,92,255,0.25), transparent)",
+          "linear-gradient(to bottom, transparent, rgba(11,13,16,1)), radial-gradient(ellipse 80% 50% at 50% -20%, rgba(245,166,35,0.14), transparent)",
+        "grid-lines":
+          "linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)",
       },
       animation: {
         "fade-up": "fadeUp 0.7s ease forwards",

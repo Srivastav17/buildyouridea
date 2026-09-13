@@ -1,33 +1,28 @@
-import { Sparkles, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import CtaLink from "./CtaLink";
 
-const flow = [
-  "IDEA",
-  "PRODUCT STRATEGY",
-  "UX & WORKFLOWS",
-  "WORKING PROTOTYPE",
-  "MVP",
+const pipeline = [
+  { n: "01", label: "idea", dots: "................." },
+  { n: "02", label: "product_strategy", dots: "....." },
+  { n: "03", label: "ux_workflows", dots: "........." },
+  { n: "04", label: "working_prototype", dots: "...." },
 ];
 
 export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-grid-fade">
-      <div className="bg-noise absolute inset-0 opacity-40" />
       <div className="container-px relative mx-auto grid max-w-7xl gap-16 pb-24 pt-20 sm:pt-28 lg:grid-cols-[1.1fr_0.9fr] lg:pb-32 lg:pt-32">
         <div className="animate-fade-up">
-          <div className="inline-flex items-center gap-2 rounded-full border border-ink-700 bg-ink-900/80 px-4 py-1.5 text-xs font-medium text-ink-300">
-            <Sparkles className="h-3.5 w-3.5 text-accent-400" />
-            Backed by 18+ years of product experience
+          <div className="inline-flex items-center gap-2 rounded-sm border border-accent-500/40 bg-ink-900/60 px-4 py-1.5 font-mono text-xs text-accent-400">
+            // backed_by: 18+ years of product experience
           </div>
 
           <h1 className="mt-6 font-display text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl">
             Have an idea? Let&rsquo;s turn it into a{" "}
-            <span className="bg-gradient-to-r from-accent-300 via-accent-400 to-signal-teal bg-clip-text text-transparent">
-              working product.
-            </span>
+            <span className="text-accent-400">working product.</span>
           </h1>
-          <p className="mt-4 text-lg font-medium text-ink-300 sm:text-xl">
-            No product team to hire. No engineers to find. Just a working prototype.
+          <p className="mt-4 font-mono text-lg text-ink-200 sm:text-xl">
+            &gt; No product team to hire. No engineers to find. Just a working prototype.
           </p>
           <p className="lede">
             Bring your SaaS, AI, or automation idea. This studio defines what&rsquo;s actually
@@ -48,36 +43,26 @@ export default function Hero() {
         </div>
 
         <div className="flex items-center justify-center lg:justify-end">
-          <div className="card relative w-full max-w-sm animate-float p-6 sm:p-8">
-            <div className="absolute -inset-px -z-10 rounded-2xl bg-gradient-to-b from-accent-500/30 to-transparent opacity-40 blur-sm" />
-            <p className="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-ink-400">
-              From idea to product
-            </p>
-            <ol className="space-y-0">
-              {flow.map((step, i) => (
-                <li key={step} className="relative pl-8">
-                  {i < flow.length - 1 && (
-                    <span className="absolute left-[11px] top-7 h-[calc(100%-4px)] w-px bg-gradient-to-b from-accent-500/60 to-ink-700" />
-                  )}
-                  <span
-                    className={`absolute left-0 top-1 flex h-6 w-6 items-center justify-center rounded-full border text-[10px] font-bold ${
-                      i === flow.length - 1
-                        ? "border-accent-400 bg-accent-500 text-white shadow-[0_0_16px_rgba(124,92,255,0.6)]"
-                        : "border-ink-600 bg-ink-800 text-ink-300"
-                    }`}
-                  >
-                    {i + 1}
+          <div className="w-full max-w-sm border border-ink-700 bg-ink-900/80">
+            <div className="border-b border-ink-700 px-4 py-2.5 font-mono text-xs text-ink-500">
+              pipeline.log
+            </div>
+            <div className="flex flex-col gap-3.5 p-5 font-mono text-[13px]">
+              {pipeline.map((step) => (
+                <div key={step.n} className="flex text-ink-400">
+                  <span>
+                    [{step.n}] {step.label}
                   </span>
-                  <p
-                    className={`pb-8 text-sm font-semibold tracking-wide ${
-                      i === flow.length - 1 ? "text-white" : "text-ink-200"
-                    }`}
-                  >
-                    {step}
-                  </p>
-                </li>
+                  <span className="mx-1 flex-1 overflow-hidden text-ink-700">{step.dots}</span>
+                  <span className="text-accent-400">done</span>
+                </div>
               ))}
-            </ol>
+              <div className="flex font-semibold text-white">
+                <span>[05] mvp</span>
+                <span className="mx-1 flex-1 overflow-hidden text-ink-700">.................</span>
+                <span className="bg-accent-400 px-1.5 text-ink-950">&#9608;</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -6,10 +6,10 @@ import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { label: "Work", href: "/work" },
-  { label: "Process", href: "/process" },
-  { label: "About", href: "/about" },
-  { label: "FAQ", href: "/faq" },
+  { label: "/work", href: "/work" },
+  { label: "/process", href: "/process" },
+  { label: "/about", href: "/about" },
+  { label: "/faq", href: "/faq" },
 ];
 
 export default function MobileNav() {
@@ -34,7 +34,7 @@ export default function MobileNav() {
         aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
         onClick={() => setOpen((o) => !o)}
-        className="flex h-10 w-10 items-center justify-center rounded-lg border border-ink-700 text-ink-200"
+        className="flex h-10 w-10 items-center justify-center rounded-sm border border-ink-700 text-ink-200"
       >
         {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
       </button>
@@ -46,7 +46,7 @@ export default function MobileNav() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="border-b border-ink-800/60 py-4 text-base font-medium text-ink-200 last:border-none"
+                className="border-b border-ink-800/60 py-4 font-mono text-base text-ink-200 last:border-none"
               >
                 {link.label}
               </Link>

@@ -43,7 +43,7 @@ export default function HowItWorks() {
           ))}
         </div>
 
-        <div className="mt-10 flex flex-col items-start gap-4 rounded-2xl border border-ink-700/60 bg-ink-900/40 p-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 flex flex-col items-start gap-4 rounded-sm border border-ink-700/60 bg-ink-900/40 p-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm text-ink-300">
             Every project is scoped individually based on the idea&rsquo;s complexity — timelines
             and effort vary, and there&rsquo;s no promise that every idea can be built in a fixed

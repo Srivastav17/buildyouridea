@@ -1,17 +1,21 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import AnalyticsScripts from "@/components/AnalyticsScripts";
 import PageViewTracker from "@/components/PageViewTracker";
 import SiteChrome from "@/components/SiteChrome";
-import GlowBackdrop from "@/components/GlowBackdrop";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
-const spaceGrotesk = Space_Grotesk({
+const plexSans = IBM_Plex_Sans({
   subsets: ["latin"],
-  variable: "--font-space",
+  variable: "--font-plex-sans",
   display: "swap",
-  weight: ["500", "600", "700"],
+  weight: ["400", "500", "600"],
+});
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  variable: "--font-plex-mono",
+  display: "swap",
+  weight: ["400", "500", "600"],
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -53,11 +57,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${plexSans.variable} ${plexMono.variable}`}>
       <body className="min-h-screen bg-ink-950 font-sans">
         <AnalyticsScripts />
         <PageViewTracker />
-        <GlowBackdrop />
         <SiteChrome>{children}</SiteChrome>
       </body>
     </html>

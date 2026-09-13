@@ -27,9 +27,9 @@ export default function ProductPreview({
 
   return (
     <div
-      className={`relative flex aspect-video w-full items-center justify-center overflow-hidden rounded-xl border border-ink-700/60 ${className}`}
+      className={`relative flex aspect-video w-full items-center justify-center overflow-hidden rounded-sm border border-ink-700/60 ${className}`}
       style={{
-        background: `linear-gradient(135deg, ${colors.from}33 0%, ${colors.to}55 60%, #08090c 100%)`,
+        background: `linear-gradient(135deg, ${colors.from}33 0%, ${colors.to}55 60%, #0b0d10 100%)`,
       }}
     >
       <div className="bg-noise absolute inset-0 opacity-30" />
@@ -42,7 +42,7 @@ export default function ProductPreview({
         style={{ background: `${colors.to}66` }}
       />
 
-      <div className="relative w-[82%] overflow-hidden rounded-lg border border-white/10 bg-ink-950/60 shadow-2xl backdrop-blur-sm">
+      <div className="relative w-[82%] overflow-hidden rounded-sm border border-white/10 bg-ink-950/60 shadow-2xl backdrop-blur-sm">
         <div className="flex items-center gap-1.5 border-b border-white/5 px-3 py-2">
           <span className="h-2 w-2 rounded-full bg-white/20" />
           <span className="h-2 w-2 rounded-full bg-white/20" />

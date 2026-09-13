@@ -1,7 +1,7 @@
 const stats = [
-  { value: "18+", label: "years in product" },
-  { value: "2", label: "products built from scratch" },
-  { value: "0", label: "handoffs between teams" },
+  { value: "18+", label: "years_in_product" },
+  { value: "2", label: "products_built" },
+  { value: "0", label: "team_handoffs" },
 ];
 
 export default function StatRow() {
@@ -10,10 +10,10 @@ export default function StatRow() {
       <div className="container-px mx-auto grid max-w-7xl grid-cols-3 divide-x divide-ink-800/60">
         {stats.map((stat) => (
           <div key={stat.label} className="px-2 py-8 text-center sm:py-10">
-            <p className="font-display text-3xl font-semibold text-white sm:text-4xl">
+            <p className="font-mono text-3xl font-semibold text-white sm:text-4xl">
               {stat.value}
             </p>
-            <p className="mt-1 text-xs text-ink-400 sm:text-sm">{stat.label}</p>
+            <p className="mt-1 font-mono text-xs text-ink-500 sm:text-sm">{stat.label}</p>
           </div>
         ))}
       </div>
