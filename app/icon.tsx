@@ -11,27 +11,27 @@ export default function Icon() {
           width: "100%",
           height: "100%",
           display: "flex",
-          alignItems: "flex-end",
+          alignItems: "center",
           justifyContent: "center",
-          gap: 2.5,
           background: "linear-gradient(135deg, #7C5CFF 0%, #3FE0C5 100%)",
           borderRadius: 8,
-          padding: "6px 6px 5px",
         }}
       >
-        <div style={{ width: 4.5, height: 8, borderRadius: 1.5, background: "rgba(255,255,255,0.95)" }} />
-        <div style={{ width: 4.5, height: 13, borderRadius: 1.5, background: "rgba(255,255,255,0.95)" }} />
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", position: "relative" }}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
           <div
             style={{
-              width: 6,
-              height: 6,
-              borderRadius: 3,
-              background: "white",
-              marginBottom: 2,
+              width: 18,
+              height: 18,
+              borderRadius: 9,
+              background: "rgba(255,255,255,0.16)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
-          />
-          <div style={{ width: 4.5, height: 17, borderRadius: 1.5, background: "white" }} />
+          >
+            <div style={{ width: 6, height: 6, borderRadius: 3, background: "white" }} />
+          </div>
+          <div style={{ width: 8, height: 3, background: "rgba(255,255,255,0.5)", marginTop: 2 }} />
         </div>
       </div>
     ),
