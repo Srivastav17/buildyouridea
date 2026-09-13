@@ -67,6 +67,7 @@ const moreWork: {
   palette: CaseStudy["palette"];
   status: string;
   screenshotSrc?: string;
+  screenshotSrcs?: string[];
 }[] = [
   {
     name: "DiveGrow",
@@ -74,6 +75,11 @@ const moreWork: {
     palette: "amber",
     status: "Actively running — paper trading, no real-money orders placed.",
     screenshotSrc: "/screenshots/divegrow-dashboard.png",
+    screenshotSrcs: [
+      "/screenshots/divegrow-orders.png",
+      "/screenshots/divegrow-positions.png",
+      "/screenshots/divegrow-trades.png",
+    ],
   },
   {
     name: "Zimove",
@@ -189,13 +195,31 @@ export default function Portfolio() {
           </Reveal>
           <div className="mt-6 grid gap-6 sm:grid-cols-2">
             {moreWork.map((item, i) => (
-              <Reveal key={item.name} delay={i * 0.06}>
+              <Reveal
+                key={item.name}
+                delay={i * 0.06}
+                className={item.screenshotSrcs ? "sm:col-span-2" : undefined}
+              >
                 <div className="card overflow-hidden p-5">
                   <ProductPreview
                     name={item.name}
                     palette={item.palette}
                     screenshotSrc={item.screenshotSrc}
                   />
+                  {item.screenshotSrcs && (
+                    <div className="mt-3 grid grid-cols-3 gap-3">
+                      {item.screenshotSrcs.map((src) => (
+                        <ProductPreview
+                          key={src}
+                          name={item.name}
+                          label="Screenshot"
+                          palette={item.palette}
+                          className="aspect-square"
+                          screenshotSrc={src}
+                        />
+                      ))}
+                    </div>
+                  )}
                   <h3 className="mt-5 font-display text-lg font-semibold text-white">
                     {item.name}
                   </h3>
