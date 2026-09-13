@@ -55,7 +55,7 @@ const caseStudies: CaseStudy[] = [
       "Automated payment reminders and promise-to-pay tracking",
     ],
     screenshotSrc: "/screenshots/fundreap-dashboard.png",
-    screenshotSrcs: ["/screenshots/fundreap-customers.png"],
+    screenshotSrcs: ["/screenshots/fundreap-customers.png", "/screenshots/fundreap-health.png"],
     result:
       "A working, live application that reads a business's real Tally data and turns it into a daily collection plan — with AI insights on which accounts are at risk and why, not just a list of overdue invoices.",
   },
