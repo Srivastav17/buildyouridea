@@ -58,12 +58,13 @@ const moreWork: {
   tagline: string;
   palette: CaseStudy["palette"];
   status: string;
+  screenshotSrc?: string;
 }[] = [
   {
     name: "DiveGrow",
-    tagline: "Another product built from idea to working software.",
+    tagline: "A live, multi-engine AI-assisted options-trading research platform (NIFTY/BANKNIFTY).",
     palette: "amber",
-    status: "Full case study coming soon.",
+    status: "Actively running — paper trading, no real-money orders placed.",
   },
   {
     name: "Zimove",
@@ -76,12 +77,7 @@ const moreWork: {
     tagline: "An AI job-search assistant that scores openings against a resume and tailors it per role.",
     palette: "cyan",
     status: "A working local tool — runs privately on your own machine by design.",
-  },
-  {
-    name: "Trading Research System",
-    tagline: "A multi-engine AI-assisted system for researching options-trading strategies.",
-    palette: "crimson",
-    status: "Paper trading only — a private research tool, not a public product.",
+    screenshotSrc: "/screenshots/omen-jobs.png",
   },
 ];
 
@@ -170,7 +166,11 @@ export default function Portfolio() {
             {moreWork.map((item, i) => (
               <Reveal key={item.name} delay={i * 0.06}>
                 <div className="card overflow-hidden p-5">
-                  <ProductPreview name={item.name} palette={item.palette} />
+                  <ProductPreview
+                    name={item.name}
+                    palette={item.palette}
+                    screenshotSrc={item.screenshotSrc}
+                  />
                   <h3 className="mt-5 font-display text-lg font-semibold text-white">
                     {item.name}
                   </h3>

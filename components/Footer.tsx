@@ -35,7 +35,7 @@ export default function Footer() {
           <CtaLink href="/start" label="Tell Me Your Idea" location="footer" />
         </div>
         <div className="mt-10 flex flex-col gap-2 border-t border-ink-800 pt-6 text-xs text-ink-500 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Builidea.</p>
+          <p>© {new Date().getFullYear()} Builidea, part of India Fashion World.</p>
           <p>Projects are scoped individually. No two ideas are the same.</p>
         </div>
       </div>

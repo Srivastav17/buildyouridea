@@ -24,6 +24,7 @@ export default function About() {
               The goal is simple — help founders and businesses move from &ldquo;I have an
               idea&rdquo; to &ldquo;Here is a working product.&rdquo;
             </p>
+            <p className="text-sm text-ink-500">Builidea is part of India Fashion World.</p>
           </div>
           <div className="mt-8">
             <CtaLink href="/start" label="Tell Me Your Idea" location="about" />

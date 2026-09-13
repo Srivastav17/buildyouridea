@@ -71,7 +71,7 @@ export const industries: Industry[] = [
       {
         title: "AI-assisted research and analysis tools",
         description:
-          "Internal tools that help a team research, model, or evaluate strategies faster — as a separate, ongoing project, an AI-assisted multi-strategy paper-trading research system has been built and is actively run privately (not a public product, no real-money trading).",
+          "DiveGrow, a live multi-engine AI-assisted options-trading research platform for NIFTY/BANKNIFTY, is one example — actively running paper trading, no real-money orders placed.",
       },
       {
         title: "Automated onboarding and KYC flows",

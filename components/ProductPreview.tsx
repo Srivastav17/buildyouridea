@@ -12,20 +12,33 @@ interface ProductPreviewProps {
   label?: string;
   palette?: keyof typeof palettes;
   className?: string;
+  screenshotSrc?: string;
 }
 
 /**
  * Stylized abstract "product shot" used until real screenshots are dropped
  * in — a window-chrome silhouette over a brand-tinted gradient, not a bare
- * placeholder box.
+ * placeholder box. Pass `screenshotSrc` to show a real screenshot instead.
  */
 export default function ProductPreview({
   name,
   label = "Product preview",
   palette = "violet",
   className = "",
+  screenshotSrc,
 }: ProductPreviewProps) {
   const colors = palettes[palette];
+
+  if (screenshotSrc) {
+    return (
+      <div
+        className={`relative flex aspect-video w-full items-center justify-center overflow-hidden rounded-sm border border-ink-700/60 bg-ink-950 ${className}`}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={screenshotSrc} alt={`${name} — ${label}`} className="h-full w-full object-cover object-top" />
+      </div>
+    );
+  }
 
   return (
     <div
