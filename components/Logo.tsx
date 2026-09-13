@@ -5,46 +5,32 @@ interface LogoProps {
   className?: string;
 }
 
+const GEAR_PATH =
+  "M44.20 32.00 L47.47 32.93 L47.00 35.90 L43.60 35.77 L41.87 39.17 L43.97 41.85 L41.85 43.97 L39.17 41.87 L35.77 43.60 L35.90 47.00 L32.93 47.47 L32.00 44.20 L28.23 43.60 L26.33 46.43 L23.66 45.06 L24.83 41.87 L22.13 39.17 L18.94 40.34 L17.57 37.67 L20.40 35.77 L19.80 32.00 L16.53 31.07 L17.00 28.10 L20.40 28.23 L22.13 24.83 L20.03 22.15 L22.15 20.03 L24.83 22.13 L28.23 20.40 L28.10 17.00 L31.07 16.53 L32.00 19.80 L35.77 20.40 L37.67 17.57 L40.34 18.94 L39.17 22.13 L41.87 24.83 L45.06 23.66 L46.43 26.33 L43.60 28.23 Z";
+
+const INNER_HOLE =
+  "M32 20.4 A11.6 11.6 0 1 1 31.99 20.4 Z";
+
+const SPARK_PATH = "M32 23 L34.6 29.4 L41 32 L34.6 34.6 L32 41 L29.4 34.6 L23 32 L29.4 29.4 Z";
+
 /**
- * Mark: a lightbulb (idea) with a small neural-network pattern traced inside
- * the glass (AI / intelligence) and screw-base ridges for readability as a
- * bulb at a glance, rather than an abstract icon.
+ * Mark: a gear (build / engineering) with an idea-spark punched through its
+ * center — one solid silhouette where the "build" and the "idea" are the
+ * same shape, not two icons layered together.
  */
 export function LogoMark({ className = "h-8 w-8" }: { className?: string }) {
   const gradientId = useId();
 
   return (
-    <svg viewBox="0 0 64 64" fill="none" className={className} aria-hidden="true">
+    <svg viewBox="0 0 64 64" className={className} aria-hidden="true">
       <defs>
-        <linearGradient id={gradientId} x1="6" y1="58" x2="58" y2="4">
+        <linearGradient id={gradientId} x1="8" y1="56" x2="56" y2="8">
           <stop offset="0%" stopColor="#7C5CFF" />
           <stop offset="100%" stopColor="#3FE0C5" />
         </linearGradient>
       </defs>
-
-      {/* Bulb glass */}
-      <path
-        d="M32 6C21.5 6 13.5 14.2 13.5 24.3c0 7 3.9 11.6 7.2 15.5 2 2.4 3.6 4.3 4 6.4h14.6c.4-2.1 2-4 4-6.4 3.3-3.9 7.2-8.5 7.2-15.5C50.5 14.2 42.5 6 32 6Z"
-        fill={`url(#${gradientId})`}
-      />
-
-      {/* Neck + screw base */}
-      <rect x="24.8" y="48.5" width="14.4" height="4.2" rx="1.4" fill={`url(#${gradientId})`} />
-      <rect x="25.8" y="53.7" width="12.4" height="3.6" rx="1.4" fill={`url(#${gradientId})`} />
-      <rect x="27" y="58.2" width="10" height="3" rx="1.5" fill={`url(#${gradientId})`} />
-
-      {/* Neural-network trace inside the glass */}
-      <g stroke="white" strokeOpacity="0.9" strokeWidth="1.4" strokeLinecap="round">
-        <line x1="24" y1="30" x2="32" y2="22" />
-        <line x1="32" y1="22" x2="40" y2="28" />
-        <line x1="32" y1="22" x2="32" y2="34" />
-        <line x1="24" y1="30" x2="32" y2="34" />
-        <line x1="40" y1="28" x2="32" y2="34" />
-      </g>
-      <circle cx="32" cy="22" r="2.6" fill="white" />
-      <circle cx="24" cy="30" r="2.2" fill="white" fillOpacity="0.9" />
-      <circle cx="40" cy="28" r="2.2" fill="white" fillOpacity="0.9" />
-      <circle cx="32" cy="34" r="2.4" fill="white" />
+      <path d={`${GEAR_PATH} ${INNER_HOLE}`} fillRule="evenodd" fill={`url(#${gradientId})`} />
+      <path d={SPARK_PATH} fill={`url(#${gradientId})`} />
     </svg>
   );
 }
