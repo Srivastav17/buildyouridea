@@ -9,8 +9,8 @@ export default function FinalCTA() {
           Your idea doesn&rsquo;t need to stay in your head.
         </h2>
         <p className="mx-auto mt-5 max-w-xl text-lg text-ink-300">
-          Share what you want to build. It&rsquo;ll get reviewed, with a clear read on what the
-          first version should look like.
+          Share what you want to build and get a clear read on what the first version
+          should look like.
         </p>
         <div className="mt-10 flex justify-center">
           <CtaLink href="/start" label="TELL ME YOUR IDEA" location="final-cta" />

@@ -9,12 +9,12 @@ const steps = [
   {
     n: "02",
     title: "Scope the Product",
-    description: "The idea gets reviewed and scoped down to the smallest version worth building.",
+    description: "Reviewed and scoped to the smallest version worth building.",
   },
   {
     n: "03",
     title: "Build the Prototype",
-    description: "Product workflows, UX, AI capabilities and the working application are built.",
+    description: "Product workflows, UX, and AI capabilities take shape as a working application.",
   },
   {
     n: "04",
