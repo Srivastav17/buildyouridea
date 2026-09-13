@@ -57,18 +57,20 @@ export const industries: Industry[] = [
   {
     slug: "fintech",
     name: "Fintech",
-    tagline: "From idea to a working financial application",
+    tagline: "AI-powered accounts receivable collections",
     hasRealWork: true,
     builtWith: {
       project: "FundReap",
       description:
-        "FundReap was built end-to-end from a single idea — a real demonstration of product discovery, SaaS architecture, and application development for a financial product.",
+        "FundReap is a live product that reads a business's real Tally accounting data and turns overdue invoices into a prioritized, AI-guided collection plan — built end-to-end from a single idea.",
       whatWasBuilt: [
-        "End-to-end product discovery and scoping",
-        "Core user workflows and application UX",
-        "SaaS application architecture",
-        "Full application development",
+        "Tally integration for reading real invoice and payment data",
+        "Automated collection plans prioritized by risk",
+        "AI-generated insights on which accounts need attention and why",
+        "DSO (days sales outstanding) tracking and trends",
+        "Automated payment reminders and promise-to-pay tracking",
       ],
+      screenshotSrc: "/screenshots/fundreap-dashboard.png",
     },
     opportunities: [
       {

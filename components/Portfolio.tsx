@@ -38,21 +38,23 @@ const caseStudies: CaseStudy[] = [
   },
   {
     name: "FundReap",
-    tagline: "Built from idea to working application",
+    tagline: "AI-powered accounts receivable collections for Tally users",
     palette: "violet",
     problem:
-      "The starting point was a raw idea, not a spec — the challenge was figuring out what the product actually needed to do before writing a single line of code.",
+      "Small and mid-sized businesses using Tally for accounting had no easy way to see which customers were falling behind on payments, or what to do about it — collections were manual, reactive, and easy to lose track of.",
     productThinking:
-      "Discovery came first: mapping the core user workflow, deciding what belonged in a first version versus later iterations, and choosing an architecture that could support a real SaaS product rather than a throwaway demo.",
+      "The product needed to read real Tally data without ever writing back to it, then turn raw invoices into a prioritized, actionable collection plan — surfacing which accounts actually need a call today instead of a generic reminder blast.",
     whatWasBuilt: [
       "End-to-end product discovery and scoping",
-      "Core user workflows and application UX",
-      "SaaS application architecture",
-      "Full application development",
-      "AI-assisted development to move from concept to working software faster",
+      "Tally integration for reading real invoice and payment data",
+      "Automated collection plans prioritized by risk",
+      "AI-generated insights on which accounts need attention and why",
+      "DSO (days sales outstanding) tracking and trends",
+      "Automated payment reminders and promise-to-pay tracking",
     ],
+    screenshotSrc: "/screenshots/fundreap-dashboard.png",
     result:
-      "A working application built from a single idea through to a functioning product — demonstrating the same discovery-to-build process used for client projects.",
+      "A working, live application that reads a business's real Tally data and turns it into a daily collection plan — with AI insights on which accounts are at risk and why, not just a list of overdue invoices.",
   },
 ];
 
@@ -68,6 +70,7 @@ const moreWork: {
     tagline: "A live, multi-engine AI-assisted options-trading research platform (NIFTY/BANKNIFTY).",
     palette: "amber",
     status: "Actively running — paper trading, no real-money orders placed.",
+    screenshotSrc: "/screenshots/divegrow-dashboard.png",
   },
   {
     name: "Zimove",

@@ -12,8 +12,9 @@ const items = [
   },
   {
     name: "FundReap",
-    tagline: "Built from idea to working application",
+    tagline: "AI-powered accounts receivable collections for Tally users",
     palette: "violet" as const,
+    screenshotSrc: "/screenshots/fundreap-dashboard.png",
   },
 ];
 
