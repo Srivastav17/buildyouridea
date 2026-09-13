@@ -75,9 +75,14 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    sendLeadNotification(lead).catch((err) =>
-      console.error("[lead-notification] failed to send:", err)
-    );
+    try {
+      await sendLeadNotification(lead);
+    } catch (err) {
+      // Lead is already saved — a failed notification email shouldn't fail the request.
+      // (Vercel serverless functions freeze right after the response is sent, so this
+      // must be awaited or the send never actually completes.)
+      console.error("[lead-notification] failed to send:", err);
+    }
 
     return NextResponse.json({ ok: true, id: lead.id });
   } catch (err) {
