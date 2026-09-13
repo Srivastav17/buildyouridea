@@ -1,6 +1,7 @@
 import Link from "next/link";
 import CtaLink from "./CtaLink";
 import MobileNav from "./MobileNav";
+import Logo from "./Logo";
 
 const navLinks = [
   { label: "Work", href: "/work" },
@@ -13,8 +14,8 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-ink-800/80 bg-ink-950/80 backdrop-blur-md">
       <div className="container-px mx-auto flex h-16 max-w-7xl items-center justify-between">
-        <Link href="/" className="font-display text-lg font-semibold tracking-tight text-white">
-          Build<span className="text-accent-400">Your</span>Idea
+        <Link href="/" aria-label="Buildia home">
+          <Logo />
         </Link>
         <nav className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (

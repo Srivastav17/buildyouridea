@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <PageHeader eyebrow="About" title="Who's behind BuildYourIdea." />
+      <PageHeader eyebrow="About" title="Who's behind Buildia." />
       <About />
       <FinalCTA />
     </>

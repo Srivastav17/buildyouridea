@@ -1,10 +1,10 @@
-# BuildYourIdea
+# Buildia
 
 Marketing site + lead-capture funnel for a solo AI Product Builder / Product Studio.
 Built with Next.js (App Router), Tailwind CSS, and Prisma (Postgres).
 
-**Live:** https://buildyouridea-seven.vercel.app
-**Admin:** https://buildyouridea-seven.vercel.app/admin/leads
+**Live:** https://builidea.com
+**Admin:** https://builidea.com/admin/leads
 
 ## Positioning
 

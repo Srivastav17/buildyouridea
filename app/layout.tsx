@@ -19,8 +19,8 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "BuildYourIdea — From idea to working product",
-    template: "%s | BuildYourIdea",
+    default: "Buildia — From idea to working product",
+    template: "%s | Buildia",
   },
   description:
     "Bring your SaaS, AI, or automation idea. This product studio helps define what should be built and turns it into a working prototype or MVP using AI-native product development.",
@@ -34,16 +34,16 @@ export const metadata: Metadata = {
     "business automation",
   ],
   openGraph: {
-    title: "BuildYourIdea — From idea to working product",
+    title: "Buildia — From idea to working product",
     description:
       "You bring the idea. This product studio helps define what should be built and turns it into a working prototype or MVP using AI-native product development.",
     url: siteUrl,
-    siteName: "BuildYourIdea",
+    siteName: "Buildia",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "BuildYourIdea — From idea to working product",
+    title: "Buildia — From idea to working product",
     description:
       "You bring the idea. This product studio helps define what should be built and turns it into a working prototype or MVP using AI-native product development.",
   },

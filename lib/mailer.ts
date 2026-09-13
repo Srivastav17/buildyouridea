@@ -16,11 +16,11 @@ function getTransport() {
 export async function sendLeadNotification(lead: Lead) {
   const transport = getTransport();
   const to = process.env.LEAD_NOTIFICATION_EMAIL;
-  const from = process.env.LEAD_FROM_EMAIL || "leads@buildyouridea.com";
+  const from = process.env.LEAD_FROM_EMAIL || "leads@builidea.com";
 
   const subject = `New idea submitted: ${lead.name} (${lead.goal})`;
   const text = [
-    `New lead received on BuildYourIdea`,
+    `New lead received on Buildia`,
     ``,
     `Name: ${lead.name}`,
     `Email: ${lead.email}`,
