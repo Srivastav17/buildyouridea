@@ -68,6 +68,7 @@ const moreWork: {
   status: string;
   screenshotSrc?: string;
   screenshotSrcs?: string[];
+  mock?: "luggage";
 }[] = [
   {
     name: "DiveGrow",
@@ -86,6 +87,7 @@ const moreWork: {
     tagline: "On-demand luggage pickup and delivery, booked in minutes.",
     palette: "rose",
     status: "Built from idea to working software. Full case study coming soon.",
+    mock: "luggage",
   },
   {
     name: "OMEN Jobs",
@@ -205,6 +207,7 @@ export default function Portfolio() {
                     name={item.name}
                     palette={item.palette}
                     screenshotSrc={item.screenshotSrc}
+                    mock={item.mock}
                   />
                   {item.screenshotSrcs && (
                     <div className="mt-3 grid grid-cols-3 gap-3">

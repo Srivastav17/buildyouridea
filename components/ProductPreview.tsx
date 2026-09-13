@@ -1,3 +1,5 @@
+import { MapPin, Luggage, ArrowRight } from "lucide-react";
+
 const palettes: Record<string, { from: string; to: string; dot: string }> = {
   violet: { from: "#7c5cff", to: "#2a1f6b", dot: "#ac96fb" },
   teal: { from: "#3fe0c5", to: "#134c47", dot: "#8ef5e2" },
@@ -13,6 +15,7 @@ interface ProductPreviewProps {
   palette?: keyof typeof palettes;
   className?: string;
   screenshotSrc?: string;
+  mock?: "luggage";
 }
 
 /**
@@ -26,6 +29,7 @@ export default function ProductPreview({
   palette = "violet",
   className = "",
   screenshotSrc,
+  mock,
 }: ProductPreviewProps) {
   const colors = palettes[palette];
 
@@ -36,6 +40,72 @@ export default function ProductPreview({
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={screenshotSrc} alt={`${name} — ${label}`} className="h-full w-full object-cover object-top" />
+      </div>
+    );
+  }
+
+  if (mock === "luggage") {
+    return (
+      <div
+        className={`relative flex aspect-video w-full items-center justify-center overflow-hidden rounded-sm border border-ink-700/60 ${className}`}
+        style={{
+          background: `linear-gradient(135deg, ${colors.from}33 0%, ${colors.to}55 60%, #0b0d10 100%)`,
+        }}
+      >
+        <div className="bg-noise absolute inset-0 opacity-30" />
+        <div
+          className="absolute -right-10 -top-10 h-40 w-40 rounded-full blur-3xl"
+          style={{ background: `${colors.from}55` }}
+        />
+        <div
+          className="absolute -bottom-14 -left-10 h-44 w-44 rounded-full blur-3xl"
+          style={{ background: `${colors.to}66` }}
+        />
+
+        <div className="relative w-[82%] overflow-hidden rounded-sm border border-white/10 bg-ink-950/70 shadow-2xl backdrop-blur-sm">
+          <div className="flex items-center gap-1.5 border-b border-white/5 px-3 py-2">
+            <span className="h-2 w-2 rounded-full bg-white/20" />
+            <span className="h-2 w-2 rounded-full bg-white/20" />
+            <span className="h-2 w-2 rounded-full bg-white/20" />
+            <span className="ml-auto text-[10px] font-medium uppercase tracking-wider text-white/40">
+              Book a pickup
+            </span>
+          </div>
+          <div className="space-y-3 p-4">
+            <div className="flex items-center gap-2.5 rounded-sm border border-white/10 bg-white/5 px-3 py-2.5">
+              <MapPin className="h-3.5 w-3.5 shrink-0" style={{ color: colors.dot }} />
+              <div className="space-y-1">
+                <div className="text-[9px] uppercase tracking-wider text-white/30">Pickup from</div>
+                <div className="h-1.5 w-28 rounded-full bg-white/20" />
+              </div>
+            </div>
+            <div className="flex items-center gap-2.5 rounded-sm border border-white/10 bg-white/5 px-3 py-2.5">
+              <MapPin className="h-3.5 w-3.5 shrink-0" style={{ color: colors.from }} />
+              <div className="space-y-1">
+                <div className="text-[9px] uppercase tracking-wider text-white/30">Deliver to</div>
+                <div className="h-1.5 w-20 rounded-full bg-white/20" />
+              </div>
+            </div>
+            <div className="flex items-center justify-between rounded-sm border border-white/10 bg-white/5 px-3 py-2.5">
+              <div className="flex items-center gap-2">
+                <Luggage className="h-3.5 w-3.5" style={{ color: colors.dot }} />
+                <span className="text-[10px] text-white/50">2 bags</span>
+              </div>
+              <div className="h-1.5 w-14 rounded-full bg-white/20" />
+            </div>
+            <div
+              className="flex items-center justify-center gap-1.5 rounded-sm py-2 text-[10px] font-semibold uppercase tracking-wider text-ink-950"
+              style={{ backgroundColor: colors.from }}
+            >
+              Book Pickup
+              <ArrowRight className="h-3 w-3" />
+            </div>
+          </div>
+        </div>
+
+        <span className="absolute bottom-3 right-3 rounded-full border border-white/10 bg-ink-950/70 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-ink-300 backdrop-blur-sm">
+          {label} — {name}
+        </span>
       </div>
     );
   }
