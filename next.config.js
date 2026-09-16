@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   agentRules: false,
+  allowedDevOrigins: ["192.168.1.7"],
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "**" },
