@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import LandingTopBar from "@/components/LandingTopBar";
 import LandingHero from "@/components/LandingHero";
+import LandingInfographic from "@/components/LandingInfographic";
 import StatRow from "@/components/StatRow";
 import LandingProof from "@/components/LandingProof";
 import LandingSteps from "@/components/LandingSteps";
@@ -23,6 +24,7 @@ export default function LandingPage() {
       <LandingTopBar />
       <main>
         <LandingHero />
+        <LandingInfographic />
         <StatRow />
         <LandingProof />
         <LandingSteps />
