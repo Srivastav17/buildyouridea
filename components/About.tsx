@@ -12,9 +12,9 @@ export default function About() {
           <div className="lede space-y-4 max-w-2xl text-ink-300">
             <p>
               Builidea is a product studio for founders and businesses who have an idea but
-              not yet a product. It&rsquo;s led by a Senior Product Manager and AI Product Builder
-              with 18+ years of experience across SaaS, CRM, customer engagement and product
-              platforms — including building InZob and FundReap from scratch.
+              not yet a product. It&rsquo;s led by someone who has worked for more than 18 years
+              as a Product Leader and AI Product Builder across SaaS, CRM, customer engagement
+              and product platforms — including building InZob and FundReap from scratch.
             </p>
             <p>
               The studio works differently from a typical development agency: start with the
@@ -50,7 +50,7 @@ export default function About() {
             <p className="eyebrow">The Team</p>
             <h2 className="h2 mt-3">More than one person, working as one team.</h2>
             <p className="lede">
-              Every project is led end-to-end by the same Senior Product Manager and AI Product
+              Every project is led end-to-end by the same Product Leader and AI Product
               Builder, backed by a team of developers, designers, and industry experts who bring
               in specific technical depth and domain knowledge as a project needs it — so nothing
               gets stuck waiting on a single skill set.

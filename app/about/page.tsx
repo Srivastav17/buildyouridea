@@ -6,7 +6,7 @@ import FinalCTA from "@/components/FinalCTA";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "A product studio run by a Senior Product Manager and AI Product Builder with 18+ years of experience.",
+    "A product studio run by someone who has worked for more than 18 years as a Product Leader and AI Product Builder.",
   alternates: { canonical: "/about" },
 };
 

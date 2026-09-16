@@ -7,7 +7,7 @@ const credentials = [
       "Nearly two decades leading product across enterprise SaaS, CRM, and customer engagement platforms.",
   },
   {
-    title: "Senior Product Management background",
+    title: "18+ years as a Product Leader",
     description: "Product discovery, roadmap strategy, and execution — not just design or code.",
   },
   {
