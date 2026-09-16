@@ -48,3 +48,94 @@ export async function sendLeadNotification(lead: Lead) {
 
   await transport.sendMail({ from, to, replyTo: lead.email, subject, text });
 }
+
+export async function sendLeadConfirmation(lead: Lead) {
+  const transport = getTransport();
+  const from = process.env.LEAD_FROM_EMAIL || "leads@builidea.com";
+  const replyTo = process.env.LEAD_NOTIFICATION_EMAIL || from;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://builidea.com";
+
+  const subject = "Got your idea — here's what happens next";
+  const firstName = lead.name.trim().split(/\s+/)[0] || lead.name;
+
+  const text = [
+    `Hi ${firstName},`,
+    ``,
+    `Thanks for sharing your idea with Builidea — this is a quick confirmation that it's been received:`,
+    ``,
+    `"${lead.idea}"`,
+    ``,
+    `What happens next: this gets reviewed personally, and you'll hear back — usually within a couple of business days — with initial thoughts on scope and how to approach it. There's no automated proposal or sales sequence after this; the next email you get will be a real reply about your specific idea.`,
+    ``,
+    `See real products built end to end while you wait: ${siteUrl}/work`,
+    ``,
+    `If you want to add anything in the meantime, just reply to this email — it goes straight to the inbox this gets reviewed from.`,
+    ``,
+    `Talk soon,`,
+    `Builidea`,
+    siteUrl,
+  ].join("\n");
+
+  const html = `
+  <div style="background:#f4f4f5; padding:32px 16px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px; margin:0 auto; background:#ffffff; border:1px solid #e5e5e5; border-radius:6px; overflow:hidden;">
+      <tr>
+        <td>
+          <img src="${siteUrl}/api/email-header" width="560" height="168" alt="Builidea" style="display:block; width:100%; height:auto; border:0;" />
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:32px 32px 8px;">
+          <p style="margin:0 0 16px; font-size:15px; line-height:1.6; color:#1a1a1a;">Hi ${escapeHtml(firstName)},</p>
+          <p style="margin:0 0 16px; font-size:15px; line-height:1.6; color:#1a1a1a;">
+            Thanks for sharing your idea with Builidea — this is a quick confirmation that it&rsquo;s been received:
+          </p>
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 20px;">
+            <tr>
+              <td style="border-left:3px solid #F5A623; background:#faf8f5; padding:14px 16px; font-size:14px; line-height:1.6; color:#3a3a3a; font-style:italic;">
+                ${escapeHtml(lead.idea)}
+              </td>
+            </tr>
+          </table>
+          <p style="margin:0 0 16px; font-size:15px; line-height:1.6; color:#1a1a1a;">
+            <strong>What happens next:</strong> this gets reviewed personally, and you&rsquo;ll hear back &mdash; usually within a couple of business days &mdash; with initial thoughts on scope and how to approach it. No automated proposal, no sales sequence &mdash; the next email you get will be a real reply about your specific idea.
+          </p>
+          <table role="presentation" cellpadding="0" cellspacing="0" style="margin:24px 0;">
+            <tr>
+              <td style="background:#F5A623; border-radius:4px;">
+                <a href="${siteUrl}/work" style="display:inline-block; padding:12px 24px; font-size:14px; font-weight:600; color:#0B0D10; text-decoration:none;">
+                  See what&rsquo;s already been built &rarr;
+                </a>
+              </td>
+            </tr>
+          </table>
+          <p style="margin:0 0 24px; font-size:14px; line-height:1.6; color:#555;">
+            Want to add anything before then? Just reply to this email &mdash; it goes straight to the inbox this gets reviewed from.
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:20px 32px; border-top:1px solid #eee; font-size:12px; color:#999;">
+          Builidea &middot; <a href="${siteUrl}" style="color:#999;">builidea.com</a> &middot; part of India Fashion World
+        </td>
+      </tr>
+    </table>
+  </div>
+  `;
+
+  if (!transport) {
+    console.log("[lead-confirmation] SMTP not configured, logging instead:\n", text);
+    return;
+  }
+
+  await transport.sendMail({ from, to: lead.email, replyTo, subject, text, html });
+}
+
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
