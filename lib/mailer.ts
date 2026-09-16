@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
-import type { Lead } from "@prisma/client";
+import type { Lead, ChatSession } from "@prisma/client";
+import type { ChatMessage } from "./openai";
 
 function getTransport() {
   const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD } = process.env;
@@ -129,6 +130,77 @@ export async function sendLeadConfirmation(lead: Lead) {
   }
 
   await transport.sendMail({ from, to: lead.email, replyTo, subject, text, html });
+}
+
+export interface StoredChatMessage extends ChatMessage {
+  ts: string;
+}
+
+export async function sendChatTranscript(session: ChatSession) {
+  const transport = getTransport();
+  const to = process.env.LEAD_NOTIFICATION_EMAIL;
+  const from = process.env.LEAD_FROM_EMAIL || "leads@builidea.com";
+  if (!transport || !to) {
+    console.log(`[chat-transcript] SMTP not configured, skipping for session ${session.id}`);
+    return;
+  }
+
+  const messages = (session.messages as unknown as StoredChatMessage[]) || [];
+  const rootMessageId = session.rootMessageId || `<chat-${session.id}@builidea.com>`;
+  const thisMessageId = `<chat-${session.id}-${session.turnCount}@builidea.com>`;
+
+  const subject = `Website chat — ${session.name || session.email}`;
+  const transcriptText = messages
+    .filter((m) => m.role !== "system")
+    .map((m) => `${m.role === "user" ? "Visitor" : "Assistant"} (${m.ts}):\n${m.content}`)
+    .join("\n\n");
+
+  const text = [
+    `Chat session ${session.id}`,
+    `Name: ${session.name || "(not given)"}`,
+    `Email: ${session.email}`,
+    `Phone: ${session.phone}`,
+    `Started: ${session.createdAt.toISOString()}`,
+    ``,
+    `--- Transcript so far ---`,
+    ``,
+    transcriptText,
+  ].join("\n");
+
+  const html = `
+    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; max-width:600px; color:#1a1a1a;">
+      <p style="margin:0 0 4px;"><strong>Chat session:</strong> ${escapeHtml(session.id)}</p>
+      <p style="margin:0 0 4px;"><strong>Name:</strong> ${escapeHtml(session.name || "(not given)")}</p>
+      <p style="margin:0 0 4px;"><strong>Email:</strong> ${escapeHtml(session.email)}</p>
+      <p style="margin:0 0 16px;"><strong>Phone:</strong> ${escapeHtml(session.phone)}</p>
+      <hr style="border:none; border-top:1px solid #ddd; margin:0 0 16px;" />
+      ${messages
+        .filter((m) => m.role !== "system")
+        .map(
+          (m) => `
+        <p style="margin:0 0 14px;">
+          <strong style="color:${m.role === "user" ? "#0B0D10" : "#B36B00"};">${
+            m.role === "user" ? "Visitor" : "Assistant"
+          }</strong>
+          <span style="color:#999; font-size:12px;"> — ${escapeHtml(m.ts)}</span><br/>
+          <span style="white-space:pre-wrap;">${escapeHtml(m.content)}</span>
+        </p>`
+        )
+        .join("")}
+    </div>
+  `;
+
+  await transport.sendMail({
+    from,
+    to,
+    replyTo: session.email,
+    subject,
+    text,
+    html,
+    messageId: thisMessageId,
+    references: rootMessageId,
+    inReplyTo: session.turnCount > 0 ? rootMessageId : undefined,
+  });
 }
 
 function escapeHtml(value: string) {

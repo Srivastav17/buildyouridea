@@ -42,3 +42,23 @@ model Lead {
   @@index([status])
   @@index([createdAt])
 }
+
+// A single website chat widget conversation. Contact details are required
+// before the visitor can send their first real message (see app/api/chat).
+model ChatSession {
+  id              String    @id @default(cuid())
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  name            String?
+  email           String
+  phone           String
+
+  // Array of { role: "user" | "assistant", content: string, ts: string }
+  messages        Json
+
+  turnCount       Int       @default(0)
+  rootMessageId   String?
+
+  @@index([createdAt])
+}
