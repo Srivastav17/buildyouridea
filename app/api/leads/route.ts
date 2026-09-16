@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { sendLeadNotification, sendLeadConfirmation } from "@/lib/mailer";
+import { summarizeIdea } from "@/lib/leadSummary";
 import {
   AUDIENCE_OPTIONS,
   STAGE_OPTIONS,
@@ -75,12 +76,14 @@ export async function POST(req: NextRequest) {
       },
     });
 
+    const ideaSummary = await summarizeIdea(lead.idea);
+
     // Lead is already saved — a failed email shouldn't fail the request.
     // (Vercel serverless functions freeze right after the response is sent, so these
     // must be awaited or the sends never actually complete.)
     const results = await Promise.allSettled([
       sendLeadNotification(lead),
-      sendLeadConfirmation(lead),
+      sendLeadConfirmation(lead, ideaSummary),
     ]);
     if (results[0].status === "rejected") {
       console.error("[lead-notification] failed to send:", results[0].reason);

@@ -50,7 +50,7 @@ export async function sendLeadNotification(lead: Lead) {
   await transport.sendMail({ from, to, replyTo: lead.email, subject, text });
 }
 
-export async function sendLeadConfirmation(lead: Lead) {
+export async function sendLeadConfirmation(lead: Lead, ideaSummary: string) {
   const transport = getTransport();
   const from = process.env.LEAD_FROM_EMAIL || "leads@builidea.com";
   const replyTo = process.env.LEAD_NOTIFICATION_EMAIL || from;
@@ -64,7 +64,7 @@ export async function sendLeadConfirmation(lead: Lead) {
     ``,
     `Thanks for sharing your idea with Builidea — this is a quick confirmation that it's been received:`,
     ``,
-    `"${lead.idea}"`,
+    ideaSummary,
     ``,
     `What happens next: this gets reviewed personally, and you'll hear back — usually within a couple of business days — with initial thoughts on scope and how to approach it. There's no automated proposal or sales sequence after this; the next email you get will be a real reply about your specific idea.`,
     ``,
@@ -94,7 +94,7 @@ export async function sendLeadConfirmation(lead: Lead) {
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 20px;">
             <tr>
               <td style="border-left:3px solid #F5A623; background:#faf8f5; padding:14px 16px; font-size:14px; line-height:1.6; color:#3a3a3a; font-style:italic;">
-                ${escapeHtml(lead.idea)}
+                ${escapeHtml(ideaSummary)}
               </td>
             </tr>
           </table>
