@@ -5,7 +5,9 @@
 
 export const SITE_KNOWLEDGE = `
 COMPANY
-Builidea is a product studio for founders and businesses who have an idea but not yet a product. It's led by a Senior Product Manager and AI Product Builder with 18+ years of experience across SaaS, CRM, customer engagement and product platforms — including building InZob and FundReap from scratch. The studio is backed by a team of developers, designers, and industry experts who bring in specific technical depth and domain knowledge as a project needs it. Builidea is part of India Fashion World.
+Builidea is a product studio for founders and businesses who have an idea but not yet a product. It's led by a Senior Product Manager and AI Product Builder with 18+ years of experience across SaaS, CRM, customer engagement and product platforms — including building InZob and FundReap from scratch. Across that career, 150+ products have been built and 100+ teams worked with. The studio is backed by a team of developers, designers, and industry experts who bring in specific technical depth and domain knowledge as a project needs it. Builidea is part of India Fashion World.
+
+Note on the 150+/100+ figures: that's a career-wide total across 18+ years, not a claim that all 150 are documented on this site. The specific, detailed case studies with real screenshots are the ones listed under REAL PRODUCTS BUILT below (InZob, FundReap, DiveGrow, Zimove, OMEN Jobs) — if someone asks what the 150 products are specifically, be upfront that most aren't individually documented here, and point them to the real case studies that are.
 
 WHAT BUILIDEA DOES
 Turns a product idea into working software — a real, usable prototype, not a slide deck or a wireframe — for founders and businesses who don't have a product team, designers, or engineers of their own yet.
